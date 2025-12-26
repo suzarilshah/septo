@@ -1,12 +1,12 @@
 /**
- * SEPTO Scraper Routes
+ * SEPTO Scraper Routes (CommonJS)
  *
  * Handles scraping of social media profiles.
  */
 
-import { createPlaywrightRouter, Dataset } from '@crawlee/playwright';
+const { createPlaywrightRouter, Dataset } = require('@crawlee/playwright');
 
-export const router = createPlaywrightRouter();
+const router = createPlaywrightRouter();
 
 // Platform selectors for different social networks
 const SELECTORS = {
@@ -98,7 +98,7 @@ router.addDefaultHandler(async ({ page, request, log }) => {
   // Wait for page to load
   try {
     await page.waitForLoadState('domcontentloaded', { timeout: 30000 });
-    await page.waitForTimeout(2000); // Additional wait for dynamic content
+    await page.waitForTimeout(2000);
   } catch (e) {
     log.warning(`Timeout waiting for page load, continuing...`);
   }
@@ -156,6 +156,4 @@ router.addDefaultHandler(async ({ page, request, log }) => {
   await Dataset.pushData(data);
 });
 
-// Note: This replaces the template routes
-// The template had separate handlers for 'detail' and default routes
-// We've consolidated everything into the default handler
+module.exports = { router };
