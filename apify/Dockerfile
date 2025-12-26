@@ -1,5 +1,5 @@
-# Apify Actor Dockerfile for SEPTO OSINT Scraper
-FROM apify/actor-node-playwright:20
+# Use Apify's Camoufox image which includes Playwright with browsers
+FROM apify/actor-node-playwright-camoufox:22-1.56.1
 
 WORKDIR /usr/src/app
 
@@ -11,9 +11,6 @@ RUN npm install --prefer-offline --no-audit --progress=false
 
 # Copy source code
 COPY . .
-
-# Install Playwright browsers (required for Firefox)
-RUN npx playwright install --with-deps firefox 2>/dev/null || npx playwright install firefox
 
 # Set the start command
 CMD ["node", "src/main.js"]
