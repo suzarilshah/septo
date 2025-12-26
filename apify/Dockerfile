@@ -8,8 +8,8 @@ WORKDIR /usr/src/app
 # Copy package files
 COPY package*.json ./
 
-# Install dependencies
-RUN npm install --only=prod
+# Install dependencies with proper permissions
+RUN npm install --prefer-offline --no-audit --progress=false
 
 # Copy source code
 COPY . .
