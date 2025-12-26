@@ -42,7 +42,7 @@ apify/
 ```bash
 # Run synchronously (get results immediately)
 curl -X POST "https://api.apify.com/v2/acts/yuurimikasa~my-actor/run-sync-get-dataset-items" \
-  -H "Authorization: Bearer YOUR_APIFY_API_TOKEN" \
+  -H "Authorization: Bearer YOUR_API_TOKEN" \
   -H "Content-Type: application/json" \
   -d '{"targetUrl": "https://github.com/octocat"}'
 ```
