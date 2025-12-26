@@ -10,17 +10,6 @@
       "description": "The URL to scrape (e.g., https://github.com/username)",
       "editor": "textfield"
     },
-    "startUrls": {
-      "title": "Start URLs (Array)",
-      "type": "array",
-      "description": "Array of URLs to scrape (alternative to targetUrl)",
-      "editor": "requestListSources",
-      "prefill": [
-        {
-          "url": "https://github.com/octocat"
-        }
-      ]
-    },
     "headless": {
       "title": "Headless Mode",
       "type": "boolean",
@@ -36,8 +25,5 @@
       "editor": "checkbox"
     }
   },
-  "anyOf": [
-    { "required": ["targetUrl"] },
-    { "required": ["startUrls"] }
-  ]
+  "required": ["targetUrl"]
 }
