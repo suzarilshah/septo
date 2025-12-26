@@ -181,3 +181,4 @@ export const categories = {
   other: { name: "Other", color: "#64748b" },
 };
 
+
