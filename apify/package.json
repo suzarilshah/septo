@@ -1,0 +1,26 @@
+{
+  "name": "septo-osint-scraper",
+  "version": "1.0.0",
+  "description": "Apify Actor for scraping OSINT data from social media platforms",
+  "main": "package.json",
+  "scripts": {
+    "start": "node dist/index.js",
+    "build": "tsc"
+  },
+  "dependencies": {
+    "apify": "^3.2.0",
+    "crawlee": "^3.11.0",
+    "playwright": "^1.52.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.0",
+    "typescript": "^5.8.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "apify": {
+    "templateId": "nodejs-playwright",
+    "actorVersion": "1.0.0"
+  }
+}
