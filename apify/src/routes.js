@@ -85,15 +85,15 @@ router.addDefaultHandler(async ({ page, request, log }) => {
 
   log.info(`Scraping ${platform}: ${url}`);
 
-  // Set up stealth mode
+  // Set up stealth mode - also override user agent via evaluate
   await page.addInitScript(() => {
     Object.defineProperty(navigator, 'webdriver', { get: () => false });
+    // Override user agent
+    Object.defineProperty(navigator, 'userAgent', {
+      value: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+      configurable: false
+    });
   });
-
-  // Set user agent
-  await page.setUserAgent(
-    'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
-  );
 
   // Wait for page to load
   try {
